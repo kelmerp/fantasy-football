@@ -6,7 +6,7 @@ end
 
 get '/sign_in' do
   # the `request_token` method is defined in `app/helpers/oauth.rb`
-  if !signed_in?
+  if !logged_in?
     redirect request_token.authorize_url
   else
     redirect "/"
