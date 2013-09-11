@@ -10,8 +10,8 @@
   <% if current_user %>
     <div>
       <form action="/tweet" method="POST">
-        <label>Tweet something fool!<input type="text" name="tweet"></label>
-        <input type="submit" value="Tweet this!">
+        <label>Tweet something fool!<input class="tweet-input"type="text" name="tweet"></label>
+        <input class="tweet-button"type="submit" value="Tweet this!">
       </form>
       <p>
         <button><a href="/sign_out">Sign Out of Twitter</a></button>
@@ -20,5 +20,15 @@
   <% else %>
     <button><a href="/sign_in">Sign In with Twitter</a></button>
   <% end %>
+
+    <% if @error %>
+      <p class="error">
+        <%= @error %>
+      </p>
+    <% elsif @message %>
+      <p class="message">
+        <%= @message %>
+      </p>
+    <% end %>
   
 </div>

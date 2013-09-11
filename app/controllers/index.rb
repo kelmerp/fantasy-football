@@ -56,6 +56,20 @@ end
 post '/tweet' do
   client = Twitter::Client.new(oauth_token: current_user.oauth_token,
    oauth_token_secret: current_user.oauth_secret)
-  client.update(params[:tweet])
-  erb :index
+  begin
+    client.update(params[:tweet])
+    @message = "Your tweet was sent successfully!"
+    erb :index
+  rescue Exception => e
+    puts e.inspect
+    @error = "Something went wrong, sorry!  You know you can't tweet the same \
+    thing twice, right?"
+    erb :index
+  end
 end
+# post '/tweet' do
+#   client = Twitter::Client.new(oauth_token: current_user.oauth_token,
+#    oauth_token_secret: current_user.oauth_secret)
+#   client.update(params[:tweet])
+#   erb :index
+# end
