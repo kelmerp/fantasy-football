@@ -7,7 +7,7 @@
     # we should show her a form that will allow her to send a tweet. If there is no
     # user logged-in, we should show the sign-in button.
   %>
-  <% if current_user %>
+  <% if logged_in? %>
     <div>
       <form action="/tweet" method="POST">
         <label>Tweet something fool!<input class="tweet-input"type="text" name="tweet"></label>
