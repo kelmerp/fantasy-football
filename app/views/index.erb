@@ -1,21 +1,9 @@
 <div class="container">
-  <h1>Tweet Now! 2: Multi-User</h1>
+  <h1>Yahoo Text Alerts</h1>
 
-  <%
-    # In our real-world application, this is not what we want. Instead, we should
-    # be checking to see if there is currently a user logged-in, and if there is,
-    # we should show her a form that will allow her to send a tweet. If there is no
-    # user logged-in, we should show the sign-in button.
-  %>
   <% if logged_in? %>
     <div>
-      <form action="/tweet" method="POST">
-        <label>Tweet something fool!<input class="tweet-input"type="text" name="tweet"></label>
-        <input class="tweet-button"type="submit" value="Tweet this!">
-      </form>
-      <p>
-        <button><a href="/sign_out">Sign Out of Twitter</a></button>
-      </p>
+
     </div>
   <% else %>
     <button><a href="/sign_in">Sign In with Twitter</a></button>
